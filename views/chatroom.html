@@ -1,0 +1,46 @@
+<!-- ./public/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatroom (by Charly Bliss)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <main>
+      <div class='parent grid-parent'>
+        <div class='child'>
+          <header>
+            <div class="user-count">0</div>
+            <h1> Yeehaw Chat</h1>
+          </header>
+
+          <section id="chatbox" class="chat">
+          </section>
+
+          <form>
+            <input type="text" placeholder="Say something nice" />
+            <button>Send</button>
+          </form>
+        </div>
+        <div class='child'>
+          <section class="info-box">
+            <header>
+              <h2> Connected Users</h2>
+              <hr></hr>
+            </header>
+          </section>
+        </div>
+      <div>
+    </main>
+
+
+    <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+    <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+    <script src="javascript.js"></script>
+  </body>
+</html>

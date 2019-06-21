@@ -1,0 +1,16 @@
+{
+  "name": "ourpropeller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "ourpropeller_test"
+  },
+  "author": "Harry Smith",
+  "license": "ISC",
+  "dependencies": {
+    "server": "^1.0.18",
+    "xss": "^1.0.6"
+  }
+}

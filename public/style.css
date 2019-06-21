@@ -1,0 +1,144 @@
+/* ./public/style.css */
+* {
+  box-sizing: border-box;
+  transition: all .3s ease;
+}
+
+html, body {
+  background: #eee;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: calc(100% - 50px);
+  height: 100%;
+  /*max-width: 1000px;*/
+  margin: 0 auto;
+  font-family: Helvetica, Arial, Sans, sans-serif;
+}
+
+div {
+  height: 100%
+}
+
+a {
+  text-decoration: none;
+  color: #4790ff;
+}
+
+a:visited {
+  color: #4790ff;
+}
+img {
+  max-width: 100%;
+}
+
+h1, .user-count {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 32px;
+}
+
+h2 {
+  margin-left: 10px;
+  margin-top: 0;
+  padding: 10px 0;
+  font-size: 28px;
+  text-align: left
+}
+
+section {
+  float: left;
+}
+
+td {
+  padding: 15px;
+}
+
+.headbar {
+  background: #ccd4e0;
+  height: 5%;
+}
+
+.about {
+  background: #ccd4e0;
+  float: left;
+  width: 30%;
+  height: 100%;
+}
+.contents {
+  float: left;
+  width: 70%;
+}
+.entries {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.user-count {
+  float: right;
+}
+
+.info-box {
+  width : 50%;
+  height: 50%;
+  background: white;
+  padding: 5px 10px;
+  overflow-x:scroll;
+  overflow-y:scroll;
+}
+
+.chat {
+  content: '';
+  width: 100%;
+  height: calc(100vh - 165px);
+  background: white;
+  padding: 5px 10px;
+  overflow-x:scroll;
+  overflow-y:scroll;
+}
+
+.chat p {
+  margin: 0 0 5px 0;
+  /*word-break: break-all;*/
+  hyphens: auto;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+.child {
+  padding: 10px 10px 10px 10px;
+}
+
+input, button {
+  width: 100%;
+  font: inherit;
+  background: #fff;
+  border: none;
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #ddd;
+}
+
+@media all and (min-width: 500px) {
+  .chat {
+    height: calc(100vh - 140px);
+  }
+  input {
+    width: calc(100% - 160px);
+  }
+  button {
+    float: right;
+    width: 150px;
+  }
+}
