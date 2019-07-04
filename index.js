@@ -42,6 +42,7 @@ const sendJoin = ctx => {
 server([
 	// for the inital render
 	get('/chat', ctx => render('chatroom.html')),
+	get('/snake', ctx => render('snake.html')),
 	get('/', ctx => render('index.html')),
 	// Joining/leaving room
 	socket('connect', updateCounter),
