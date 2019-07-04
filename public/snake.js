@@ -18,7 +18,7 @@ function draw() {
 	checkRecolor();
 	this.snakePlayer.propagateMovement();
 	const headPos = this.snakePlayer.head.coord;
-	if (this.drawing && headPos.x < 40 && headPos.y < 40) {
+	if (this.drawing && headPos.x >= 0 && headPos.x < 40 && headPos.y >= 0 && headPos.y < 40) {
 		this.board.canvas[(headPos.x + "," + headPos.y)] = this.painter.playerColor_;
 	}
 
