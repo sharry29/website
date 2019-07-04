@@ -5,6 +5,7 @@ class GameBoard {
 		this.cellWidth = this.smallDim / numSquares;
 		this.cellHeight = this.smallDim / numSquares;
 		this.extent = new p5.Vector(this.cellWidth*numSquares, this.cellWidth*numSquares);
+		this.canvas = new Map();
 
 	}
 

@@ -3,6 +3,7 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	const numSquares = 40;
 	this.palette = new Palette();
+	this.drawing = false;
 	this.board = new GameBoard(windowWidth * 0.8, windowHeight * 0.8, numSquares);
 	const extent = this.board.boardExtent;
 	this.snakePlayer = new SnakePlayer(numSquares);
@@ -16,6 +17,11 @@ function draw() {
 	clear();
 	checkRecolor();
 	this.snakePlayer.propagateMovement();
+	const headPos = this.snakePlayer.head.coord;
+	if (this.drawing && headPos.x < 40 && headPos.y < 40) {
+		this.board.canvas[(headPos.x + "," + headPos.y)] = this.painter.playerColor_;
+	}
+
 	this.painter.paintBoard();
 	this.painter.paintPalette();
 	this.painter.paintPlayer();
@@ -36,7 +42,7 @@ function checkRecolor() {
 		this.palette.colors.forEach((color, idx) => {
 			if (headExtent.top.y >= y_disp + idx * 2 * splotchSize &&
 				headExtent.bot.y <= splotchSize + y_disp + idx * 2 * splotchSize) {
-				this.painter.paintColor = color;
+				this.painter.playerColor = color;
 				return;
 			}
 		});
@@ -45,16 +51,24 @@ function checkRecolor() {
 }
 
 function keyPressed() {
-	if (key === " ") {
+	if (key === "p") {
 		snakePlayer.paused = !snakePlayer.paused;
-	} else if (!snakePlayer.paused) {
+	} else if (key === " ") {
+		this.drawing = !this.drawing;
+	}
+	else if (!snakePlayer.paused) {
 		var d = {
 			37: "left",
 			39: "right",
 			38: "up",
 			40: "down"
 		};
-		snakePlayer.setDirection(d[keyCode]);
+		const code = d[keyCode];
+		if (code) {
+			snakePlayer.setDirection(d[keyCode]);
+		} else {
+			return;
+		}
 	}
 }
 

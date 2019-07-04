@@ -3,11 +3,11 @@ class Painter {
 		this.player = player
 		this.board = board
 		this.palette = palette
-		this.paintColor_ = 'red'
+		this.playerColor_ = 'red'
 	}
 
-	set paintColor(color) {
-		this.paintColor_ = color;
+	set playerColor(color) {
+		this.playerColor_ = color;
 	}
 
 	paintBoard() {
@@ -18,14 +18,26 @@ class Painter {
 			line(origin_vert.x, origin_vert.y, origin_vert.x, extent.y);
 			line(origin_horiz.x, origin_horiz.y, extent.x, origin_horiz.y);
 		}
+		for (var coord in this.board.canvas) {
+			let coords = coord.split(",")
+			let new_coord = new p5.Vector(parseInt(coords[0]), parseInt(coords[1]));
+			const pos = this.board.coordToPos(new_coord);
+			fill(this.board.canvas[coord])
+			square(pos.x, pos.y, this.board.cellSize)
+		}
+		fill('black')
 	}
 
 	paintPlayer() {
 		this.player.body.forEach( segment => {
 			const bodyPos = board.coordToPos(segment.coord);
-			fill(this.paintColor_);
+			fill(this.playerColor_);
+			if (this.playerColor_ === "white") {
+				stroke('red');
+			}			
 			square(bodyPos.x, bodyPos.y, board.cellSize);
 		});
+		stroke("black")
 	}
 
 	paintPalette() {
