@@ -55,6 +55,10 @@ function keyPressed() {
 		snakePlayer.paused = !snakePlayer.paused;
 	} else if (key === " ") {
 		this.drawing = !this.drawing;
+	} else if (key === "z") {
+		this.snakePlayer.shrink();
+	} else if (key === "x") {
+		this.snakePlayer.grow();
 	}
 	else if (!snakePlayer.paused) {
 		var d = {

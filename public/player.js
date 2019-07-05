@@ -58,4 +58,11 @@ class SnakePlayer {
 		this.body.push(new_tail);
 		this.tail = new_tail;
 	}
+
+	shrink() {
+		if (this.body.length >= 2) {
+			this.body.pop();
+			this.tail = this.body[this.body.length-1];
+		}
+	}
 }
