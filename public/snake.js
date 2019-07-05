@@ -21,7 +21,7 @@ function draw() {
 	if (this.drawing && headPos.x >= 0 && headPos.x < 40 && headPos.y >= 0 && headPos.y < 40) {
 		this.board.canvas[(headPos.x + "," + headPos.y)] = this.painter.playerColor_;
 	}
-
+	this.painter.paintText();
 	this.painter.paintBoard();
 	this.painter.paintPalette();
 	this.painter.paintPlayer();

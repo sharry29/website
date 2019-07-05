@@ -20,6 +20,29 @@ class Painter {
 		}
 	}
 
+	paintText() {
+		const smallDim = this.board.smallDim;
+		stroke("black")
+		fill("black")
+		textSize(windowHeight*0.025);
+		textAlign(CENTER, TOP)
+		text("Stijlin' Snake", windowWidth/2, smallDim*0.05);
+
+		textAlign(CENTER, TOP);
+		text("Instructions", smallDim*0.3, smallDim*0.1);
+		textSize(windowHeight*0.020);
+		text("P -- Pause", smallDim*0.3, smallDim*0.2);
+		text("Z -- Shrink", smallDim*0.3, smallDim*0.25);
+		text("X -- Grow", smallDim*0.3, smallDim*0.3);
+		text("SPACE BAR -- Toggle Painting", smallDim*0.3, smallDim*0.35);
+
+		textAlign(CENTER, TOP)
+		// textSize(windowHeight*0.015)
+		text("You're a stijlin' snake. \nDraw from your head.\n Gobble paint to change colors.", smallDim*0.3, smallDim*0.4);
+
+
+	}
+
 	paintBoard() {
 		const extent = this.board.coordToPos(createVector(board.numSquares, board.numSquares));
 		for (var i = 0; i <= board.numSquares; i++) {
