@@ -27,9 +27,6 @@ socket.on('count', function (data) {
 // On receiving a message:
 // {user : 'username', message : 'text'}
 socket.on('message', function (data) {
-	if (data.user === "poop") {
-		$('.chat').append('<p><strong text-color="pink">' + data.user + '</strong>: ' + data.message + '</p>');
-	}
 	$('.chat').append('<p><strong>' + data.user + '</strong>: ' + data.message + '</p>');
 	var objSection = document.getElementById("chatbox");
 	objSection.scrollTop = objSection.scrollHeight;
