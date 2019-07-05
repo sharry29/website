@@ -4,10 +4,20 @@ class Painter {
 		this.board = board
 		this.palette = palette
 		this.playerColor_ = 'red'
+		this.playerEyeColor_ = 'black'
+		this.RIGHT = new p5.Vector(1, 0)
+		this.LEFT = new p5.Vector(-1, 0)
+		this.UP = new p5.Vector(0, -1)
+		this.DOWN = new p5.Vector(0, 1)
 	}
 
 	set playerColor(color) {
 		this.playerColor_ = color;
+		if (color === "black" || color === "blue") {
+			this.playerEyeColor_ = "white"
+		} else {
+			this.playerEyeColor_ = "black"
+		}
 	}
 
 	paintBoard() {
@@ -34,8 +44,28 @@ class Painter {
 			fill(this.playerColor_);
 			if (this.playerColor_ === "white") {
 				stroke('red');
-			}			
+			}	
 			square(bodyPos.x, bodyPos.y, board.cellSize);
+			if (this.player.head === segment) {
+				stroke(this.playerEyeColor_);
+				strokeWeight(4);
+				const headDir = segment.direction;
+				if (headDir.equals(this.RIGHT)) {
+					point(bodyPos.x  + 0.7 * board.cellSize, bodyPos.y + 0.2 * board.cellSize);
+					point(bodyPos.x  + 0.7 * board.cellSize, bodyPos.y + 0.8 * board.cellSize);
+				} else if (headDir.equals(this.LEFT)) {
+					point(bodyPos.x  + 0.3 * board.cellSize, bodyPos.y + 0.2 * board.cellSize);
+					point(bodyPos.x  + 0.3 * board.cellSize, bodyPos.y + 0.8 * board.cellSize);
+				} else if (headDir.equals(this.UP)) {
+					point(bodyPos.x  + 0.2 * board.cellSize, bodyPos.y + 0.3 * board.cellSize);
+					point(bodyPos.x  + 0.8 * board.cellSize, bodyPos.y + 0.3 * board.cellSize);
+				} else if (headDir.equals(this.DOWN)) {
+					point(bodyPos.x  + 0.2 * board.cellSize, bodyPos.y + 0.7 * board.cellSize);
+					point(bodyPos.x  + 0.8 * board.cellSize, bodyPos.y + 0.7 * board.cellSize);
+				}
+			}
+			stroke("black");
+			strokeWeight(1);	
 		});
 		stroke("black")
 	}
