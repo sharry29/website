@@ -1,0 +1,32 @@
+{
+	"variables": ["LOBBY", "BORDER", "BELLY"],
+	"terminals": ["RBorder", "HBorder", "RBelly", "HBelly"],
+	"productions": [
+		{
+			"in": "LOBBY",
+			"outs": ["BORDER", "BELLY"]
+		},
+		{
+			"in": "BORDER",
+			"outs": ["RBorder"]
+		},
+		{
+			"in": "BORDER",
+			"outs": ["HBorder"]
+		},
+		{
+			"in": "BELLY",
+			"outs": ["BORDER", "BELLY"]
+		},
+		{
+			"in": "BELLY",
+			"outs": ["HBelly"]
+		},
+		{
+			"in": "BELLY",
+			"outs": ["RBelly"]
+		},
+
+	],
+	"start_var": "LOBBY"
+}

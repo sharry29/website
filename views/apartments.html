@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- ./public/index.html -->
+<html>
+  <head>
+    <title>Harry Smith</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cfa_style.css">
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="viz.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="big-container">
+        <div class="contents">
+          <div class="headbar"></div>
+          <h2>Context-Free Apartment Lobbies</h2>
+          <svg class="tile_canvas"></svg>
+        </div>
+    </div>
+    </main>
+
+
+    <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+    <script>
+      cfg = new CFG(json_obj);
+      s = new Sentence(cfg, ["LOBBY"]);
+      console.log(s.elems);
+
+      while (s.has_var()) {
+        s.expand_left();
+        console.log(s.elems);
+      }
+
+      let num_borders = s.elems.length - 1;
+
+      console.log(`NUMBER OF BORDERS = ${num_borders}`)
+      let border_pct = Math.random() * 0.2 + 0.15;
+      let belly_pct = 1 - border_pct;
+      console.log(border_pct,  belly_pct)
+
+      let remaining = border_pct;
+      widths = [];
+      for (let i = 0; i < num_borders; i++) {
+        if (i == num_borders - 1) {
+          widths.push(remaining);
+        }
+        widths.push(remaining * Math.random());
+        remaining -= widths[i]
+      }
+      widths.push(belly_pct);
+      console.log(widths);
+
+
+
+      let containerWidth = +d3.select('svg').style('width').slice(0, -2);
+      let containerHeight = +d3.select('svg').style('height').slice(0, -2);
+      console.log(containerHeight, containerWidth)
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+    <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+  </body>
+</html>
