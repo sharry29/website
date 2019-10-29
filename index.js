@@ -44,6 +44,8 @@ server([
 	get('/chat', ctx => render('chatroom.html')),
 	get('/snake', ctx => render('snake.html')),
 	get('/', ctx => render('index.html')),
+	get('/cfa', ctx => render('apartments.html')),
+	// get('/stylometry', ctx => render('/public/ModernCorefVoiceAA.pdf')),
 	// Joining/leaving room
 	socket('connect', updateCounter),
 	socket('disconnect', handleDisconnect),
