@@ -44,7 +44,5 @@ button {
   font-size: 1.3rem;
   vertical-align: middle;
   border: none;
-  width: 300px;
-  height: 100%;
   flex-grow: 1;
 }
