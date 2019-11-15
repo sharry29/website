@@ -1,43 +1,42 @@
 // /index.js
 
-const server = require('server');
-var xss = require("xss");
+const server = require('server')
+var xss = require('xss')
 
-const {get, socket} = server.router;
-const { render } = server.reply;
-var id_to_username = {};
+const { get, socket } = server.router
+const { render } = server.reply
+var id_to_username = {}
 
 const updateCounter = ctx => {
 	// console.log(Object.keys(ctx.io.sockets.sockets));
-	ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length);
-};
+	ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length)
+}
 
 const handleDisconnect = ctx => {
 	// console.log("after DC");
 	// console.log(Object.keys(ctx.io.sockets.sockets));
-	ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length);
-	const connected_set = new Set(Object.keys(ctx.io.sockets.sockets));
+	ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length)
+	const connected_set = new Set(Object.keys(ctx.io.sockets.sockets))
 	var users = []
 	for (const [id, username] of Object.entries(id_to_username)) {
 		if (!(id in connected_set)) {
-			users.push(username);
-			delete id_to_username[id];
+			users.push(username)
+			delete id_to_username[id]
 		}
-	} 
-	ctx.io.emit('leave', users);
-};
+	}
+	ctx.io.emit('leave', users)
+}
 
 const sendMessage = ctx => {
-	ctx.data.message = xss(ctx.data.message);
-	ctx.io.emit('message', ctx.data);
-};
+	ctx.data.message = xss(ctx.data.message)
+	ctx.io.emit('message', ctx.data)
+}
 
 const sendJoin = ctx => {
-	id_to_username[ctx.data.id] = ctx.data.user;
-	ctx.io.emit('join', ctx.data);
+	id_to_username[ctx.data.id] = ctx.data.user
+	ctx.io.emit('join', ctx.data)
 	// console.log(id_to_username)
-};
-
+}
 
 server([
 	// for the inital render
@@ -51,4 +50,4 @@ server([
 	socket('disconnect', handleDisconnect),
 	socket('message', sendMessage),
 	socket('join', sendJoin)
-]);
+])
