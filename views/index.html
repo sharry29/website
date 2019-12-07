@@ -2,6 +2,13 @@
 <!-- ./public/index.html -->
 <html>
   <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d5b85b" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Harry Smith</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,36 +52,50 @@
         </p>
       </aside>
       <main class="portfolio-col">
-        <h2>Here's some stuff I'd like to share with you.</h2>
-        <div>
-          <h3>Visualization Work</h3>
-          <hr />
-          <list>
-            <a href="https://sharry29.github.io/p4k"
-              >Breaking Down Pitchfork's Top 200 of the 2010s</a
-            >
-            <li>
-              Who was the best of the best in the 2010s? How did recent songs
-              contend against tracks from the beginning of the decade? What
-              labels were the constant hitmakers? Was this the decade of truly
-              independent music? Check this out to find out!
-            </li>
-            <br />
-            <a href="https://sharry29.github.io/diagnosis_dilemma"
-              >Doctor's Diagnosis Dilemma</a
-            >
-            <li>
+        <h3>Visualization Work</h3>
+        <hr />
+
+        <div class="category">
+          <a class="entry" href="https://sharry29.github.io/p4k">
+            <h4>Pitchfork's Top 200 of the 2010s</h4>
+            <img
+              class="billboard"
+              src="p4k.png"
+              alt="Pitchfork's Top 200 of the 2010s"
+            />
+            <p>Top Tuneage from 2010-2019</p>
+          </a>
+          <a class="entry" href="https://sharry29.github.io/diagnosis_dilemma"
+            ><h4>Doctor's Diagnosis Dilemma</h4>
+            <img
+              class="billboard"
+              src="diagnosis.png"
+              alt="Doctor's Diagnosis Dilemma"
+            />
+            <p>
+              Are you better at diagnosing rare diseases than most American
+              doctors?
+            </p></a
+          >
+          <!--             <li>
               Are you better at reasoning about probabilities than your doctor?
               You'd hope so, since medical testing for diagnosing is just a game
               of conditional probability. This is an interactive explainer for
               why it's difficult to diagnose rare diseases even with nearly
               perfect medical equipment.
-            </li>
-            <br />
-            <a href="https://shpach.github.io/Data-Visualization-A5/"
-              >Economic Outcomes for College Majors</a
-            >
-            <li>
+            </li> -->
+          <a
+            class="entry"
+            href="https://shpach.github.io/Data-Visualization-A5/"
+          >
+            <h4>Economic Outcomes for College Majors</h4>
+            <img class="billboard" src="majors.gif" alt="College Majors" />
+            <p>
+              What to expect when you're expecting to graduate with a Petroleum
+              Engineering degree.
+            </p>
+          </a>
+          <!--             <li>
               Final project for Intro to Data Visualization. A D3 scollytelling
               experience walking you through what to expect when you're
               expecting (to graduate with a Petroleum Engineering degree). You
@@ -83,27 +104,30 @@
                 href="https://medium.com/@hs3061/does-college-provide-all-students-with-the-same-economic-opportunities-6867795b7c34"
                 >here.</a
               >
-            </li>
-            <br />
-            <a href="https://observablehq.com/@sharry29/nba-elo/3"
-              >NBA Team ELOs through Time</a
-            >
-            <li>
+            </li> -->
+          <a class="entry" href="https://observablehq.com/@sharry29/nba-elo/3"
+            ><h4>NBA Team ELOs through Time</h4>
+            <img class="billboard" src="nba.gif" alt="NBA Timeline" />
+            <p>A visual history of the NBA.</p>
+          </a>
+          <!-- <li>
               An exploration of the relative strength of NBA teams through time,
               using FiveThirtyEight's ELO data. A nice bonus of the
               visualization is the ability to see teams pop up, disappear, and
               move across the country. The linked Observable notebook contains a
               brief recap of the ideation process for the visualization as well.
-              <br /></li
-          ></list>
-          <h3>Research</h3>
-          <hr />
-          <list>
-            <a href="ModernCorefVoiceAA.pdf"
-              >Stylometry in the Modern Era: Coreference and Voice for
-              Authorship Attribution</a
-            >
-            <li>
+              <br />
+            </li> -->
+        </div>
+        <h3>Research</h3>
+
+        <div class="category">
+          <a class="entry" href="ModernCorefVoiceAA.pdf"
+            ><h4>
+              Stylometry in the Modern Era: Coreference and Voice for Authorship
+              Attribution
+            </h4>
+            <p>
               What factors determine an author's voice in writing? We used state
               of the art NLP techniques to define features that can be used to
               quantify the notion of authorial style. In particular, we explored
@@ -113,52 +137,52 @@
               the past decade, so this particular experiment was performed in
               the domain of non-fiction. Co-authored with Samuel Sharpe, Justin
               Cho.
-            </li>
-            <br />
-            <a href="/RobustMethodsIPS.pdf"
-              >Exploring Robust Neural Methods in Inductive Program Synthesis</a
-            >
-            <li>
+            </p>
+          </a>
+
+          <a class="entry" href="/RobustMethodsIPS.pdf"
+            ><h4>
+              Exploring Robust Neural Methods in Inductive Program Synthesis
+            </h4>
+            <p>
               The ability for computers to create and understand human-readable
               source code is an attractive goal with profound implications for
               software engineering and security research. In this paper, I
               provide a survey of research which has attempted to generate or
               learn programs using Neural Networks and evaluate strengths and
               weaknesses of each. Additionally, I formalize an extention to the
-              promising work done by
-              <a href="https://arxiv.org/abs/1611.01989">DeepCoder </a> that
-              incorporates a Graph Neural Network into the inductive framework.
-            </li>
-            <li>
-              <a href="/DeepCoder_IPS.pdf">Here</a> is a link to a presentation
-              I gave on DeepCoder which also describes the problem of Inductive
-              Program Synthesis.
-            </li>
-          </list>
-          <h3>Fun Stuff</h3>
-          <hr />
-          <list>
-            <a href="https://sharry29.github.io/DataViz/projects/a0/index.html"
-              >Cat Eye Clock</a
-            >
-            <li>
-              A p5.js sketch inspired by
-              <a href="https://kit-cat.com/">Kit-Cat Clocks.</a> A purrfect way
-              to check the time!
-            </li>
-            <br />
-            <a href="/snake"> Stijlin' Snake</a>
-            <li>
-              A game written in p5.js inspired by
-              <a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">
-                the classic game of Snake</a
-              >
-              and
-              <a href="https://en.wikipedia.org/wiki/De_Stijl"
-                >the De Stijl art movement.</a
-              >
-            </li>
-          </list>
+              promising work done by DeepCoder that incorporates a Graph Neural
+              Network into the inductive framework.
+            </p>
+          </a>
+
+          <!--           <li>
+            <a href="/DeepCoder_IPS.pdf">Here</a> is a link to a presentation I
+            gave on DeepCoder which also describes the problem of Inductive
+            Program Synthesis.
+          </li> -->
+        </div>
+        <h3>Fun Stuff</h3>
+
+        <div class="category">
+          <a
+            class="entry"
+            href="https://sharry29.github.io/DataViz/projects/a0/index.html"
+          >
+            <h4>Cat Eye Clock</h4>
+            <p>
+              A p5.js sketch inspired by Kit-Cat Clocks A purrfect way to check
+              the time!
+            </p>
+          </a>
+
+          <a class="entry" href="/snake"
+            ><h4>Stijlin' Snake</h4>
+            <p>
+              A game written in p5.js inspired by the classic game of Snake and
+              the De Stijl art movement.
+            </p></a
+          >
         </div>
       </main>
     </div>
