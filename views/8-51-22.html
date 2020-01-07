@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- ./public/index.html -->
+<html>
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d5b85b" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Harry Smith</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--     <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+      /> -->
+  </head>
+  <body>
+    <div class="headbar">
+      <h1>Harry Smith</h1>
+      <a class="item" href="HarrySmith_CV.pdf"><button>CV</button></a>
+      <a class="item" href="http://www.columbia.edu/~hs3061/reviews.pdf"
+        ><button>Teaching Reviews</button></a
+      >
+    </div>
+    <div class="main-content">
+      <aside class="about-col">
+        <img
+          class="me"
+          src="fancy_picture.jpg"
+          alt="Hudson Yards (2019)"
+          title="Hudson Yards (2019)"
+        />
+        <h2>
+          My name is Harry Smith. <span>I'm the one in the background!</span>
+        </h2>
+        <p>
+          I'm currently a Master's student at Columbia University studying
+          Computer Science. My coursework is focused on Machine Learning and
+          Natural Language Processing, but my primary interests are in CS
+          education, Data Visualization, and creative computing.
+        </p>
+      </aside>
+      <main class="portfolio-col">
+        <h3>8-51-22</h3>
+        <hr />
+
+        <div id="gallery" class="category">
+<!--           <a class="entry" href="https://sharry29.github.io/p4k">
+            <h4>Pitchfork's Top 200 of the 2010s</h4>
+            <img
+              class="billboard"
+              src="p4k.png"
+              alt="Pitchfork's Top 200 of the 2010s"
+            />
+            <p>Top Tuneage from 2010-2019</p>
+          </a> -->
+        </div>
+      </main>
+    </div>
+    <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    	var folder = "http://ourpropeller.com/efott/";
+    	console.log(folder)
+		$.ajax({
+		    url : folder,
+		    success: function (data) {
+		    	console.log(data)
+		        $(data).find("a").attr("href", function (i, val) {
+		        	console.log(val)
+		            if( val.match(/\.(png)$/) ) { 
+		        		console.log("Hello?")
+		                $("#body").append( "<a class='entry'><img class='billboard' src='"+ folder + val +"'/></a>" );
+		            } 
+		        });
+		    }
+		});
+    </script>
+<!--       <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+      <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script> -->
+  </body>
+</html>
