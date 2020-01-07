@@ -17,5 +17,4 @@ server([
 	get('/snake', ctx => render('snake.html')),
 	get('/', ctx => render('index.html')),
 	get('/cfa', ctx => render('apartments.html')),
-	get('/:junk', ctx => render('index.html')),
 ])
