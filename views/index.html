@@ -28,35 +28,31 @@
   <body>
     <div class="headbar">
       <a href="/"><h1>Harry Smith</h1></a>
-      <a class="item" href="HarrySmith_CV.pdf"><button>CV</button></a>
+      <!-- <a class="item" href="HarrySmith_CV.pdf"><button>CV</button></a>
       <a class="item" href="http://www.columbia.edu/~hs3061/reviews.pdf"
         ><button>Teaching Reviews</button></a
-      >
+      > -->
     </div>
     <div class="main-content">
       <aside class="about-col">
         <img
           class="me"
-          src="fancy_picture.jpg"
-          alt="Hudson Yards (2019)"
-          title="Hudson Yards (2019)"
+          src="prof_photo.jpg"
+          alt="Bryn Mawr (2020)"
+          title="Bryn Mawr (2020)"
         />
         <h2>
-          My name is Harry Smith. <span>I'm the one in the background!</span>
+          My name is Harry Smith.
         </h2>
         <p>
-          I'm currently a Master's student at Columbia University studying
-          Computer Science. My coursework is focused on Machine Learning and
-          Natural Language Processing, but my primary interests are in CS
-          education, Data Visualization, and creative computing.
+          I'm currently a Lecturer at the University of Pennsylvania teaching
+          Computer Science. Aside from my teaching, I'm interested in Data
+          Visualization, and creative computing.
         </p>
       </aside>
       <main class="portfolio-col">
-        <h3>Visualization Work</h3>
-        <hr />
-
         <div class="category">
-          <a class="entry" href="https://sharry29.github.io/p4k">
+          <!-- <a class="entry" href="https://sharry29.github.io/p4k">
             <h4>Pitchfork's Top 200 of the 2010s</h4>
             <img
               class="billboard"
@@ -76,17 +72,42 @@
               Are you better at diagnosing rare diseases than most American
               doctors?
             </p></a
-          >
-          <a class="wide-entry" href="/threenumbers"
-            ><h4> <span style="color:#1F77B4">Eight</span> // <span style="color:#FF7F0E">Fifty-One</span> // <span style="color:#DB2822">Twenty-Two</span></h4>
-            <div style="display: flex; flex-direction: row;">
-            <img class="billboard-wide" src="efott/11-13-19.png"/>
-            <img class="billboard-wide" src="efott/10-29-19.png"/>
+          > -->
+          <a class="wide-entry" href="HarrySmith_CV.pdf"
+            ><h1>
+              Here's a link to my <span style="color: #1f77b4;">CV</span>.
+            </h1>
+            <!-- <div style="display: flex; flex-direction: row;">
+              <img class="billboard-wide" src="efott/11-13-19.png" />
+              <img class="billboard-wide" src="efott/10-29-19.png" />
             </div>
             <p>
               An experiment in iteration.
-            </p></a
-          >
+            </p> -->
+          </a>
+          <a
+            class="wide-entry"
+            href="https://www.cis.upenn.edu/~cis110/current/index.html"
+            ><h1>
+              Here's a link to my
+              <span style="color: #ff7f0e;">course page</span>.
+            </h1>
+            <!-- <div style="display: flex; flex-direction: row;">
+              <img class="billboard-wide" src="efott/11-13-19.png" />
+              <img class="billboard-wide" src="efott/10-29-19.png" />
+            </div> -->
+            <p>
+              (Or, it will be when the summer iteration is over.)
+            </p>
+          </a>
+          <a class="wide-entry" href="/work"
+            ><h1>
+              Here's a link to
+              <span style="color: #db2822;"
+                >some other work I'd like to share</span
+              >.
+            </h1>
+          </a>
           <!--             <li>
               Are you better at reasoning about probabilities than your doctor?
               You'd hope so, since medical testing for diagnosing is just a game
@@ -94,7 +115,7 @@
               why it's difficult to diagnose rare diseases even with nearly
               perfect medical equipment.
             </li> -->
-          <a
+          <!-- <a
             class="entry"
             href="https://shpach.github.io/Data-Visualization-A5/"
           >
@@ -104,7 +125,7 @@
               What to expect when you're expecting to graduate with a Petroleum
               Engineering degree.
             </p>
-          </a>
+          </a> -->
           <!--             <li>
               Final project for Intro to Data Visualization. A D3 scollytelling
               experience walking you through what to expect when you're
@@ -115,11 +136,11 @@
                 >here.</a
               >
             </li> -->
-          <a class="entry" href="https://observablehq.com/@sharry29/nba-elo/3"
+          <!-- <a class="entry" href="https://observablehq.com/@sharry29/nba-elo/3"
             ><h4>NBA Team ELOs through Time</h4>
             <img class="billboard" src="nba.gif" alt="NBA Timeline" />
             <p>A visual history of the NBA.</p>
-          </a>
+          </a> -->
           <!-- <li>
               An exploration of the relative strength of NBA teams through time,
               using FiveThirtyEight's ELO data. A nice bonus of the
@@ -128,71 +149,6 @@
               brief recap of the ideation process for the visualization as well.
               <br />
             </li> -->
-        </div>
-        <h3>Research</h3>
-
-        <div class="category">
-          <a class="entry" href="ModernCorefVoiceAA.pdf"
-            ><h4>
-              Stylometry in the Modern Era: Coreference and Voice for Authorship
-              Attribution
-            </h4>
-            <p>
-              What factors determine an author's voice in writing? We used state
-              of the art NLP techniques to define features that can be used to
-              quantify the notion of authorial style. In particular, we explored
-              how constructs like passive voice usage and entity coreference
-              patterns create an author's signature literary fingerprint. Our
-              data came from the Guardian's opinion pieces and book reviews over
-              the past decade, so this particular experiment was performed in
-              the domain of non-fiction. Co-authored with Samuel Sharpe, Justin
-              Cho.
-            </p>
-          </a>
-
-          <a class="entry" href="/RobustMethodsIPS.pdf"
-            ><h4>
-              Exploring Robust Neural Methods in Inductive Program Synthesis
-            </h4>
-            <p>
-              The ability for computers to create and understand human-readable
-              source code is an attractive goal with profound implications for
-              software engineering and security research. In this paper, I
-              provide a survey of research which has attempted to generate or
-              learn programs using Neural Networks and evaluate strengths and
-              weaknesses of each. Additionally, I formalize an extention to the
-              promising work done by DeepCoder that incorporates a Graph Neural
-              Network into the inductive framework.
-            </p>
-          </a>
-
-          <!--           <li>
-            <a href="/DeepCoder_IPS.pdf">Here</a> is a link to a presentation I
-            gave on DeepCoder which also describes the problem of Inductive
-            Program Synthesis.
-          </li> -->
-        </div>
-        <h3>Fun Stuff</h3>
-
-        <div class="category">
-          <a
-            class="entry"
-            href="https://sharry29.github.io/DataViz/projects/a0/index.html"
-          >
-            <h4>Cat Eye Clock</h4>
-            <p>
-              A p5.js sketch inspired by Kit-Cat Clocks A purrfect way to check
-              the time!
-            </p>
-          </a>
-
-          <a class="entry" href="/snake"
-            ><h4>Stijlin' Snake</h4>
-            <p>
-              A game written in p5.js inspired by the classic game of Snake and
-              the De Stijl art movement.
-            </p></a
-          >
         </div>
       </main>
     </div>
