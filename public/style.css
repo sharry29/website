@@ -172,7 +172,7 @@ button {
 @media only screen and (max-width: 768px) {
   aside.about-col {
     position: static;
-    /*display: flex;*/
+    max-width: 100%;
   }
 
   main.slider {
