@@ -169,6 +169,11 @@ button {
   flex-grow: 1;
 }
 
+canvas[resize] {
+  width: 100%;
+  flex-grow: 2;
+}
+
 @media only screen and (max-width: 768px) {
   aside.about-col {
     position: static;
