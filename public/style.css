@@ -64,34 +64,6 @@ div.headbar {
   align-items: center;
 }
 
-aside.about-col {
-  height: 100%;
-  flex-grow: 1;
-  margin-right: 0.5rem;
-  padding: 1rem;
-  top: 0px;
-  min-width: 20%;
-  max-width: 22%;
-  position: sticky;
-  /*display: ;*/
-}
-
-main.portfolio-col {
-  flex-grow: 3;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 70%;
-}
-
-main.slider {
-  margin: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-}
-
 div.category {
   display: flex;
   flex-direction: row;
@@ -118,6 +90,41 @@ div.efott-category {
   background: #ffdb80;
 }
 
+/* div.about-header {
+  height: 100%;
+  position: sticky;
+  top: 0px;
+} */
+
+aside.about-col {
+  height: 100%;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  padding: 1rem;
+  top: 0px;
+  min-width: 20%;
+  max-width: 22%;
+  position: sticky;
+  /*display: ;*/
+}
+
+main.portfolio-col {
+  flex-grow: 3;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 70%;
+  position: relative;
+}
+
+main.slider {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
 .efott-entry {
   max-width: 20%;
   /*background: #ffdb80;*/
@@ -136,6 +143,7 @@ div.efott-category {
   border-width: medium;
   padding: 10px;
   margin: 10px;
+  text-align: center;
 }
 
 .wide-entry {
@@ -148,8 +156,24 @@ div.efott-category {
   border-width: medium;
   padding: 10px;
   margin: 10px;
+  text-align: center;
 }
 
+.invis {
+  visibility: hidden;
+}
+
+.left-text {
+  text-align: start;
+  /* width: fit-content;
+  display: inline-block; */
+}
+
+.right-text {
+  text-align: end;
+  /* width: fit-content;
+  display: inline-block; */
+}
 a.item {
   height: 30px;
 }
@@ -158,8 +182,8 @@ a {
   text-decoration: none;
   color: black;
   /*text-anchor: middle;*/
-  text-align: center;
 }
+
 button {
   background: #ffc430;
   font-family: "Oswald", sans-serif;
@@ -170,8 +194,9 @@ button {
 }
 
 canvas[resize] {
-  width: 100%;
-  flex-grow: 2;
+  position: absolute;
+  left: 0px;
+  right: 0px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -209,6 +234,9 @@ canvas[resize] {
   }
   .efott-entry {
     width: 40%;
+  }
+  .invis {
+    display: none;
   }
 
   img.me {
