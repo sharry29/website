@@ -149,6 +149,7 @@ main.slider {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 0px 15px 0px 15px;
 }
 
 .wide-entry {
@@ -162,6 +163,11 @@ main.slider {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 0px 15px 0px 15px;
+}
+
+.straight {
+  border-radius: 0;
 }
 
 .invis {
@@ -187,6 +193,11 @@ a {
   text-decoration: none;
   color: black;
   /*text-anchor: middle;*/
+}
+
+p,
+dl {
+  font-family: "Nunito", sans-serif;
 }
 
 button {
