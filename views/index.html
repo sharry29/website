@@ -17,47 +17,152 @@
       href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap"
       rel="stylesheet"
     />
+    <script type="text/javascript" src="paper-full.min.js"></script>
 
-    <!--     <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-      /> -->
+    <script
+      type="text/paperscript"
+      src="homepage-drawing.js"
+      canvas="myCanvas"
+    ></script>
   </head>
-  <script type="text/javascript" src="paper-full.min.js"></script>
 
-  <script
-    type="text/paperscript"
-    src="homepage-drawing.js"
-    canvas="myCanvas"
-  ></script>
   <body>
     <div class="headbar">
-      <a href="/"><h1>Harry Smith</h1></a>
-      <!-- <a class="item" href="HarrySmith_CV.pdf"><button>CV</button></a>
-      <a class="item" href="http://www.columbia.edu/~hs3061/reviews.pdf"
-        ><button>Teaching Reviews</button></a
-      > -->
+      <a href="/">
+        <h1>Harry Smith</h1>
+      </a>
     </div>
     <div class="main-content">
       <aside class="about-col">
-        <img
-          class="me"
-          src="prof_photo.jpg"
-          alt="Bryn Mawr (2020)"
-          title="Bryn Mawr (2020)"
-        />
-        <h2>My name is Harry Smith.</h2>
-        <p>
-          I'm currently a Lecturer at the University of Pennsylvania teaching
-          Computer Science. Aside from my teaching, I'm interested in Data
-          Visualization, and creative computing.
-        </p>
+        <div class="about-header">
+          <img
+            class="me"
+            src="prof_photo.jpg"
+            alt="Bryn Mawr (2020)"
+            title="Bryn Mawr (2020)"
+          />
+          <h2>my name is Harry Smith.</h2>
+        </div>
+      </aside>
+
+      <main class="portfolio-col">
+        <canvas id="myCanvas" resize="true"></canvas>
+
+        <div class="category" style="z-index: 1">
+          <div class="entry left-text">
+            <h1>
+              i'm currently a lecturer at the university of pennsylvania
+              teaching computer science.
+            </h1>
+          </div>
+          <a class="entry invis"></a>
+          <a class="entry invis"></a>
+          <div class="entry right-text">
+            <h2>
+              aside from my teaching, i'm interested in data viz and creative
+              computing.
+            </h2>
+          </div>
+
+          <div class="entry left-text">
+            <h2>
+              real quick:
+              <span>
+                <a style="color: #1f77b4" href="http://cis110.com"
+                  >here's what i'm teaching</a
+                ></span
+              >
+              and
+              <span>
+                <a style="color: #db2822" href="HarrySmith_CV.pdf"
+                  >here's my cv</a
+                ></span
+              >
+            </h2>
+          </div>
+          <a class="entry invis"> </a>
+        </div>
+      </main>
+    </div>
+    <div class="main-content">
+      <aside class="about-col">
+        <div class="about-header">
+          <h2>teaching</h2>
+        </div>
       </aside>
       <main class="portfolio-col">
+        <h3>teaching philosophy</h3>
+        <hr />
+
         <div class="category">
-          <!-- <a class="entry" href="https://sharry29.github.io/p4k">
+          <div class="wide-entry">
+            <h4>I center empathy, respect, and adaptation in my teaching.</h4>
+            <p style="text-align: start">
+              I believe that good teaching cannot happen without student trust
+              in the design and purpose of a course. To build up this trust, it
+              is imperative to respect that students come to a class as entire
+              people from diverse backgrounds and circumstances. Their time is
+              finite, so good teaching must be rigorous without being
+              e-n-d-l-e-s-s. Their input is valuable, so good teaching cannot be
+              so rigid that it does not account for differences among learners
+              and classes. Their motivation is earned, and good teaching takes
+              strides to earn as much of it as possible from each student.
+            </p>
+            <h4>I maintain that inclusive teaching is effective teaching.</h4>
+            <p style="text-align: start">
+              I am committed to teaching practices that include diverse
+              identities and perspectives not simply because these practices are
+              fair and socially just, but because they are fundamentally good
+              teaching practices. When a course is designed with inclusivity in
+              mind, an instructor & the students construct an environment
+              wherein all participants will be encouraged to learn and grow.
+            </p>
+            <h4>I recognize that good teaching comes through iteration.</h4>
+            <p>And I am committed to continually improving.</p>
+          </div>
+        </div>
+        <h3>courses taught</h3>
+        <div class="category">
+          <div class="wide-entry left-text">
+            <h4>at the University of Pennsylvania:</h4>
+            <li>
+              Fall 2020:
+              <a href="http://www.cis110.com"
+                >CIS 110 (Introduction to Computer Programming)</a
+              >
+            </li>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="main-content" style="text-transform: lowercase">
+      <aside class="about-col">
+        <div class="about-header">
+          <h2>Here's some work I've done.</h2>
+          <p>
+            Some viz work, some personal research projects, and some odds and
+            ends.
+          </p>
+        </div>
+      </aside>
+      <main class="portfolio-col">
+        <h3>Visualization Work</h3>
+        <hr />
+
+        <div class="category">
+          <a class="wide-entry" href="/threenumbers">
+            <h4>
+              <span style="color: #1f77b4">Eight</span> //
+              <span style="color: #ff7f0e">Fifty-One</span> //
+              <span style="color: #db2822">Twenty-Two</span>
+            </h4>
+            <div style="display: flex; flex-direction: row">
+              <img class="billboard-wide" src="efott/11-13-19.png" />
+              <img class="billboard-wide" src="efott/10-29-19.png" />
+            </div>
+            <p>An experiment in iteration.</p>
+          </a>
+          <a class="entry" href="https://sharry29.github.io/p4k">
             <h4>Pitchfork's Top 200 of the 2010s</h4>
             <img
               class="billboard"
@@ -66,8 +171,8 @@
             />
             <p>Top Tuneage from 2010-2019</p>
           </a>
-          <a class="entry" href="https://sharry29.github.io/diagnosis_dilemma"
-            ><h4>Doctor's Diagnosis Dilemma</h4>
+          <a class="entry" href="https://sharry29.github.io/diagnosis_dilemma">
+            <h4>Doctor's Diagnosis Dilemma</h4>
             <img
               class="billboard"
               src="diagnosis.png"
@@ -76,88 +181,99 @@
             <p>
               Are you better at diagnosing rare diseases than most American
               doctors?
-            </p></a
-          > -->
-          <a class="wide-entry" href="HarrySmith_CV.pdf"
-            ><h1>
-              Here's a link to my <span style="color: #1f77b4">CV</span>.
-            </h1>
-            <!-- <div style="display: flex; flex-direction: row;">w
-              <img class="billboard-wide" src="efott/11-13-19.png" />
-              <img class="billboard-wide" src="efott/10-29-19.png" />
-            </div>
-            <p>
-              An experiment in iteration.
-            </p> -->
+            </p>
           </a>
           <a
             class="wide-entry"
-            href="https://www.cis.upenn.edu/~cis110/current/index.html"
-            ><h1>
-              Here's a link to my
-              <span style="color: #ff7f0e">course page</span>.
-            </h1>
-            <!-- <div style="display: flex; flex-direction: row;">
-              <img class="billboard-wide" src="efott/11-13-19.png" />
-              <img class="billboard-wide" src="efott/10-29-19.png" />
-            </div> -->
-          </a>
-          <a class="wide-entry" href="/work"
-            ><h1>
-              Here's a link to
-              <span style="color: #db2822"
-                >some other work I'd like to share</span
-              >.
-            </h1>
-          </a>
-          <!--             <li>
-              Are you better at reasoning about probabilities than your doctor?
-              You'd hope so, since medical testing for diagnosing is just a game
-              of conditional probability. This is an interactive explainer for
-              why it's difficult to diagnose rare diseases even with nearly
-              perfect medical equipment.
-            </li> -->
-          <!-- <a
-            class="entry"
-            href="https://shpach.github.io/Data-Visualization-A5/"
+            href="https://pudding.cool/2020/05/travel-local/"
           >
-            <h4>Economic Outcomes for College Majors</h4>
-            <img class="billboard" src="majors.gif" alt="College Majors" />
+            <h4>
+              "A Data-driven trip through the USA"
+              <span style="color: #777777">by Ilia Blinderman</span>
+            </h4>
+            <div style="display: flex; flex-direction: row">
+              <img class="billboard-wide" src="2020_05_travel-local.jpg" />
+            </div>
             <p>
-              What to expect when you're expecting to graduate with a Petroleum
-              Engineering degree.
+              I collected the data for this Pudding project. Thanks to
+              TripAdvisor for being so patient with all the web-crawling.
             </p>
-          </a> -->
-          <!--             <li>
-              Final project for Intro to Data Visualization. A D3 scollytelling
-              experience walking you through what to expect when you're
-              expecting (to graduate with a Petroleum Engineering degree). You
-              can read about our methodology
-              <a
-                href="https://medium.com/@hs3061/does-college-provide-all-students-with-the-same-economic-opportunities-6867795b7c34"
-                >here.</a
-              >
-            </li> -->
-          <!-- <a class="entry" href="https://observablehq.com/@sharry29/nba-elo/3"
-            ><h4>NBA Team ELOs through Time</h4>
-            <img class="billboard" src="nba.gif" alt="NBA Timeline" />
-            <p>A visual history of the NBA.</p>
-          </a> -->
-          <!-- <li>
-              An exploration of the relative strength of NBA teams through time,
-              using FiveThirtyEight's ELO data. A nice bonus of the
-              visualization is the ability to see teams pop up, disappear, and
-              move across the country. The linked Observable notebook contains a
-              brief recap of the ideation process for the visualization as well.
-              <br />
-            </li> -->
-          <canvas id="myCanvas" resize="true"></canvas>
+            Data viz and analysis by author Ilia Blinderman.
+          </a>
+        </div>
+        <h3>Research</h3>
+
+        <div class="category">
+          <a class="entry" href="ModernCorefVoiceAA.pdf">
+            <h4>
+              Stylometry in the Modern Era: Coreference and Voice for Authorship
+              Attribution
+            </h4>
+            <p>
+              What factors determine an author's voice in writing? We used state
+              of the art NLP techniques to define features that can be used to
+              quantify the notion of authorial style. In particular, we explored
+              how constructs like passive voice usage and entity coreference
+              patterns create an author's signature literary fingerprint. Our
+              data came from the Guardian's opinion pieces and book reviews over
+              the past decade, so this particular experiment was performed in
+              the domain of non-fiction. Co-authored with Samuel Sharpe, Justin
+              Cho.
+            </p>
+          </a>
+
+          <a class="entry" href="/RobustMethodsIPS.pdf">
+            <h4>
+              Exploring Robust Neural Methods in Inductive Program Synthesis
+            </h4>
+            <p>
+              The ability for computers to create and understand human-readable
+              source code is an attractive goal with profound implications for
+              software engineering and security research. In this paper, I
+              provide a survey of research which has attempted to generate or
+              learn programs using Neural Networks and evaluate strengths and
+              weaknesses of each. Additionally, I formalize an extention to the
+              promising work done by DeepCoder that incorporates a Graph Neural
+              Network into the inductive framework.
+            </p>
+          </a>
+        </div>
+        <h3>Fun Stuff</h3>
+
+        <div class="category">
+          <a
+            class="entry"
+            href="https://sharry29.github.io/DataViz/projects/a0/index.html"
+          >
+            <h4>Cat Eye Clock</h4>
+            <p>
+              A p5.js sketch inspired by Kit-Cat Clocks A purrfect way to check
+              the time!
+            </p>
+          </a>
+
+          <a class="entry" href="/snake">
+            <h4>Stijlin' Snake</h4>
+            <p>
+              A game written in p5.js inspired by the classic game of Snake and
+              the De Stijl art movement.
+            </p>
+          </a>
         </div>
       </main>
     </div>
-    <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
-    <!--     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-      <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
-      <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script> -->
   </body>
+  <script type="text/javascript">
+    var canvas = document.querySelector("canvas");
+    fitToContainer(canvas);
+
+    function fitToContainer(canvas) {
+      // Make it visually fill the positioned parent
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
+      // ...then set the internal size to match
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+  </script>
 </html>
