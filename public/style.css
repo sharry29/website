@@ -105,6 +105,10 @@ aside.about-col {
   min-width: 20%;
   max-width: 22%;
   position: sticky;
+  border-bottom: 10px solid #ffdb80;
+  border-right: 10px solid #ffdb80;
+
+  /* background: #ffdb80; */
   /*display: ;*/
 }
 
@@ -115,6 +119,7 @@ main.portfolio-col {
   flex-direction: column;
   min-width: 70%;
   position: relative;
+  /* border-bottom: 10px solid #ffdb80; */
 }
 
 main.slider {
@@ -203,6 +208,7 @@ canvas[resize] {
   aside.about-col {
     position: static;
     max-width: 100%;
+    border: none;
   }
 
   main.slider {
@@ -224,10 +230,10 @@ canvas[resize] {
     max-width: 100%;
   }
 
-  div.headbar {
+  /* div.headbar {
     position: sticky;
     top: 0;
-  }
+  } */
 
   .entry {
     width: 80%;
@@ -248,5 +254,6 @@ canvas[resize] {
 
   h3 {
     max-width: 100%;
+    position: sticky;
   }
 }
