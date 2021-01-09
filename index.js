@@ -7,6 +7,8 @@ var xss = require("xss");
 const { get, socket } = server.router;
 const { render } = server.reply;
 
+console.log("I am running!");
+
 function dailyViz() {
   return render("8-51-22.html");
 }
