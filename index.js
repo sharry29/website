@@ -17,12 +17,13 @@ function showMyWork() {
   return render("work.html");
 }
 
-server([
+server(
   // for the inital render
+  get("/cis521", redirect("https://sharry29.github.io/21su/index.html")),
   get("/threenumbers", dailyViz),
   get("/chat", (ctx) => render("chatroom.html")),
   get("/snake", (ctx) => render("snake.html")),
   get("/", (ctx) => render("index.html")),
   get("/cfa", (ctx) => render("apartments.html")),
-  get("/work", showMyWork),
-]);
+  get("/work", showMyWork)
+);
