@@ -19,7 +19,9 @@ function showMyWork() {
 
 server(
   // for the inital render
-  get("/cis521", redirect("https://sharry29.github.io/21su/index.html")),
+  get("/cis521", (ctx) =>
+    redirect("https://sharry29.github.io/21su/index.html")
+  ),
   get("/threenumbers", dailyViz),
   get("/chat", (ctx) => render("chatroom.html")),
   get("/snake", (ctx) => render("snake.html")),
