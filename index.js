@@ -5,7 +5,7 @@ const server = require("server");
 var xss = require("xss");
 
 const { get, socket } = server.router;
-const { render } = server.reply;
+const { render, redirect } = server.reply;
 
 console.log("I am running!");
 
