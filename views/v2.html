@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harry Smith</title>
+  <style>
+    /* Redaction (OFL) — degradation levels 10, 35, 50 */
+
+    @font-face {
+      font-family: "Redaction 10";
+      src: url("/fonts/redaction/Redaction_10-Regular.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 10";
+      src: url("/fonts/redaction/Redaction_10-Italic.woff2") format("woff2");
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 10";
+      src: url("/fonts/redaction/Redaction_10-Bold.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 35";
+      src: url("/fonts/redaction/Redaction_35-Regular.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 35";
+      src: url("/fonts/redaction/Redaction_35-Italic.woff2") format("woff2");
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 35";
+      src: url("/fonts/redaction/Redaction_35-Bold.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 50";
+      src: url("/fonts/redaction/Redaction_50-Regular.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 50";
+      src: url("/fonts/redaction/Redaction_50-Italic.woff2") format("woff2");
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Redaction 50";
+      src: url("/fonts/redaction/Redaction_50-Bold.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Redaction 10", serif;
+    }
+
+    .r35 {
+      font-family: "Redaction 35", serif;
+    }
+
+    .r50 {
+      font-family: "Redaction 50", serif;
+    }
+
+    .huge {
+      font-size: 240pt;
+    }
+
+    /* Mobile: four stacked rows, each one screen tall */
+    .panel {
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      font-family: "Redaction 50", serif;
+      font-style: italic;
+    }
+
+    /* Desktop: four equal columns filling the screen exactly */
+    @media (min-width: 768px) {
+      body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .panel {
+        width: 25%;
+        height: 100%;
+      }
+
+      .panel+.panel {
+        border-left: 1px solid #000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="panel">
+    <h1 class="r50">Harry Smith</h1>
+    <img src="new_photo.png" />
+    <p>I am a Senior Lecturer at the University of Pennsylvania. I live in Philadelphia, PA.</p>
+    <p>You can look at my <a>CV</a> here.</p>
+    <p>You can find me on <a>Github</a> here.</p>
+    <p class="huge">thanks.</p>
+  </section>
+
+
+  <section class="panel">
+    <h3>courses i have taught</h3>
+    <ul>
+      <li>CIS 1100, Introduction to Computer Programming</li>
+      <li>CIS 2500, Software Development with Agentic Tools (undergraduate)</li>
+      <li>CIS 5210, Introduction to Artificial Intelligence (on campus & for Engineering Online)</li>
+      <li>CIS 5450, Introduction to Big Data Analytics</li>
+      <li>CIS 5590, Programming and Problem Solving</li>
+      <li>CIS 5750, Software Development with Agentic Tools (graduate)</li>
+      <li>CIT 5910, Introduction to Software Development</li>
+      <li>CIT 5940, Data Structures & Software Design</li>
+    </ul>
+
+
+  </section>
+  <section class="panel">
+    <h3>i would like you to see this</h3>
+    <ul>
+      <li>
+        <a href="/threenumbers">Eight // Fifty-One // Twenty-Two</a>, an experiment in iteration
+      </li>
+      <li><a href="https://sharry29.github.io/p4k">pitchfork's top 200 of the 2010s</a>, an analysis of some culture
+        increasingly distant</li>
+      <li><a href="https://sharry29.github.io/diagnosis_dilemma">doctor's diagnosis dilemma</a>, an explainer for
+        probabilities of rare events</li>
+      <li><a href="https://pudding.cool/2020/05/travel-local/">a data-driven trip through the usa</a>, written by ilia
+        blinderman with data harvested by me</li>
+      <li><a href="https://www.ourpropeller.com/snake">stijlin' snake</a>, a game for painting</li>
+
+    </ul>
+
+  </section>
+  <section class="panel"><canvas id="toy"></canvas></section>
+  <script src="/v2.js"></script>
+</body>
+
+</html>

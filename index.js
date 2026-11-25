@@ -1,31 +1,33 @@
 // /index.js
 
-const server = require("server");
+const server = require('server')
 // const d3 = require('d3')
-var xss = require("xss");
+var xss = require('xss')
 
-const { get, socket } = server.router;
-const { render, redirect } = server.reply;
+const { get, socket } = server.router
+const { render, redirect } = server.reply
 
-console.log("I am running!");
+console.log('I am running!')
 
 function dailyViz() {
-  return render("8-51-22.html");
+  return render('8-51-22.html')
 }
 
 function showMyWork() {
-  return render("work.html");
+  return render('work.html')
 }
 
 server(
   // for the inital render
-  get("/cis521", (ctx) =>
-    redirect("https://sharry29.github.io/21su/index.html")
+  get('/cis521', (ctx) =>
+    redirect('https://sharry29.github.io/21su/index.html')
   ),
-  get("/threenumbers", dailyViz),
-  get("/chat", (ctx) => render("chatroom.html")),
-  get("/snake", (ctx) => render("snake.html")),
-  get("/", (ctx) => render("index.html")),
-  get("/cfa", (ctx) => render("apartments.html")),
-  get("/work", showMyWork)
-);
+  get('/threenumbers', dailyViz),
+  get('/chat', (ctx) => render('chatroom.html')),
+  get('/snake', (ctx) => render('snake.html')),
+  get('/', (ctx) => render('index.html')),
+  get('/harrys-cherries', (ctx) => render('harrys-cherries-25.html')),
+  get('/cfa', (ctx) => render('apartments.html')),
+  get('/work', showMyWork),
+  get('/v2', (ctx) => render('v2.html'))
+)

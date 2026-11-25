@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry's Cherries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=BBH+Bartle&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-white: #f5f0fa;
+            --blue-white: #f0f5fa;
+            --shadow-1: #ff6b9d;
+            --shadow-2: #845ec2;
+            --shadow-3: #2c73d2;
+            --cherry-red: #c41e3a;
+            --title-font: 'BBH Bartle', cursive;
+            --body-font: 'Atkinson Hyperlegible', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background: linear-gradient(135deg, var(--purple-white) 0%, var(--blue-white) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Cherry emoji container for eruptions */
+        .cherry-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .cherry-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: cherryErupt 2s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes cherryErupt {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-400px) rotate(720deg) scale(1.5);
+            }
+        }
+
+        /* Hero / Title Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: var(--title-font);
+            font-size: clamp(1.8rem, 8vw, 8rem);
+            color: var(--cherry-red);
+            text-transform: uppercase;
+            padding: 1rem 0.5rem;
+            background: white;
+            border: 4px solid #000;
+            box-shadow:
+                6px 6px 0 var(--shadow-1),
+                12px 12px 0 var(--shadow-2),
+                18px 18px 0 var(--shadow-3);
+            transform: rotate(-2deg);
+            max-width: calc(100vw - 4rem);
+            text-align: left;
+            hyphens: manual;
+            /* word-wrap: break-word; */
+        }
+
+        .hero-subtitle {
+            font-family: var(--body-font);
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            color: #333;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            font-family: var(--body-font);
+            color: #666;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            font-family: var(--title-font);
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 3px solid #000;
+            box-shadow:
+                4px 4px 0 var(--shadow-1),
+                8px 8px 0 var(--shadow-2),
+                12px 12px 0 var(--shadow-3);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .cherries-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+
+
+        /* Individual Cherry Item */
+        .cherry-item {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.3s ease;
+        }
+
+        .cherry-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cherry-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .cherry-image-wrapper {
+            flex-shrink: 0;
+            width: 200px;
+            height: 280px;
+            position: relative;
+        }
+
+        .cherry-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid #000;
+            box-shadow:
+                5px 5px 0 var(--shadow-1),
+                10px 10px 0 var(--shadow-2),
+                15px 15px 0 var(--shadow-3);
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transform: rotate(-1080deg) scale(0);
+            opacity: 0;
+        }
+
+        .cherry-item.visible .cherry-image {
+            animation: spinIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes spinIn {
+            0% {
+                transform: rotate(-1080deg) scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotate(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .cherry-content {
+            flex: 1;
+        }
+
+        .cherry-indicator {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .cherry-title {
+            font-family: var(--body-font);
+            font-size: 1.5rem;
+            color: var(--cherry-red);
+            margin-bottom: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: white;
+            border: 2px solid #000;
+            box-shadow:
+                3px 3px 0 var(--shadow-1),
+                6px 6px 0 var(--shadow-2);
+            display: inline-block;
+        }
+
+        .cherry-blurb {
+            font-family: var(--body-font);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .cherry-item,
+            .cherry-item:nth-child(even) {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .cherry-image-wrapper {
+                width: 180px;
+                height: 250px;
+            }
+
+            .cherry-blurb {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cherry-container" id="cherryContainer"></div>
+
+    <section class="hero">
+        <h1 class="hero-title">Harry's Cherries</h1>
+        <p class="hero-subtitle">🍒 A bag of curiosities hand-picked from 2025 for your edification! 🍒</p>
+        <p class="scroll-hint">↓ peruse my wares ↓</p>
+    </section>
+
+    <!-- Books Section -->
+    <section class="section" id="books">
+        <h2 class="section-title">Thoughts on Some Books Read In (But Not Necessarily From) 2025</h2>
+        <div class="cherries-grid">
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/negative-space.jpg" />
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Negative Space by Lilly Dancyger</h3>
+                    <span class="cherry-indicator">👍</span>
+
+                    <p class="cherry-blurb">I love a memoir about family. I love a memoir about growing up in New York.
+                        I love a memoir about experiencing art.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/easy-job.jpg" />
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">There's No Such Thing as an Easy Job by Kikuko Tsumura</h3>
+                    <span class="cherry-indicator">👍</span>
+
+                    <p class="cherry-blurb">Quite a trick to combine fascinating magical powers with mindless drudgery.
+                        It's nice to feel that your work has an impact.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/fresh-green-life.jpg" />
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">Fresh, Green Life by Sebastian Castillo</h3>
+                    <span class="cherry-indicator">👍</span>
+
+                    <p class="cherry-blurb">An effete and delusional narrator. An invitation to a dubious
+                        party. A mention of expensive turkey sandwiches with cranberry miso mayo. A propulsive lead-up
+                        to a hilarious crashout. Everything you could need.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/little-life.jpg" />
+
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">A Little Life by Hanya Yanagihara</h3>
+                    <span class="cherry-indicator">👎</span>
+
+                    <p class="cherry-blurb">I made sounds like I was taking poison damage over time whilst reading this.
+                        This is miserable. Taught me the meaning of "hate read."</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/lithium-for-medea.jpg" />
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">Lithium for Medea by Kate Braverman</h3>
+                    <span class="cherry-indicator">👍</span>
+
+                    <p class="cherry-blurb">A worthy entry into the canon of Loser Lit. Braverman takes the whole
+                        "nothing applies" thing from <em>Play It As It Lays</em> and gives it as ammunition to an even
+                        more hopeless
+                        protagonist.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/nenoquich.jpg" />
+
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">The Nenoquich by Henry Bean</h3>
+                    <span class="cherry-indicator">👍</span>
+
+                    <p class="cherry-blurb">Another worthy entry into the canon of Loser Lit. Imagine a guy so
+                        miserable that having sex with him presents a risk to life and limb.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/gibbs.jpg" />
+
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">Willard Gibbs: The Whole is Simpler than its Parts by Muriel Rukeyser</h3>
+                    <span class="cherry-indicator">👎</span>
+
+                    <p class="cherry-blurb">A fascinating premise: biography-as-poetry about an unknown genius from the
+                        19th century. Many lovely ideas explored: the consequences of poor explanations, the importance
+                        of thinking with abstractions, the role of faith in science. And yet: an absolutely torturous
+                        slog. Oh well!</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/pale-king.jpg" />
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">The Pale King by David Foster Wallace</h3>
+                    <span class="cherry-indicator">👍👍👍</span>
+
+                    <p class="cherry-blurb">A messy set of parables about attention and focus and passion and effort and
+                        (self-)consciousness. This also includes the most
+                        jaw-dropping hundred page build-up to a pun I have encountered.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/lonesome-dove.jpg" />
+                </div>
+                <div class="cherry-content">
+
+                    <h3 class="cherry-title">Lonesome Dove by Larry McMurtry</h3>
+                    <span class="cherry-indicator">👍👍👍</span>
+
+                    <p class="cherry-blurb">I mean shut the fuck up how can anything be this good.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="section" id="games">
+        <h2 class="section-title">Thoughts on Some Games</h2>
+        <div class="cherries-grid">
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎮</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Blue Prince</h3>
+                    <p class="cherry-blurb">This fascinating game exhibits an enraging pattern: it is not always
+                        possible to do what you know that you need to do on each run of the game. Sometimes you draw bad
+                        cards and get blocked from making the connection you were looking for. This can happen at the
+                        end of a fairly long day that is otherwise spent going through the motions to hopefully get a
+                        good outcome. This is a feature I found maddening in The Outer Wilds, too, although that game
+                        managed to make up for it with a story that was inherently charming. There was nothing about the
+                        family in Blue Prince that was interesting enough to prevent me from feeling that my time was
+                        being wasted.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎮</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">The Séance of Blake Manor</h3>
+                    <p class="cherry-blurb">Lots of cool stories here. Playing this on the TV with the Steam Deck
+                        reminds me to be grateful for fast loading screens in other games on modern hardware. Boy howdy
+                        is it tedious to walk across the manor in this game. Nevertheless: it's sick.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <img class="cherry-image" src="cherries/diceomancer.webp" />
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Diceomancer</h3>
+                    <p class="cherry-blurb">Challenging roguelike deckbuilder that does an excellent job of making you
+                        feel like you're    breaking the game. Lovely hand-drawn art, too! You should play it.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎮</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Death Stranding 2: On the Beach</h3>
+                    <p class="cherry-blurb">I haven't finished it so I don't have a ton to say except that it's so fun
+                        so cool so pretty so silly so great. Looking forward to another 40 hours at least.</p>
+                </div>
+            </article>
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎮</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Overwatch 2</h3>
+                    <p class="cherry-blurb">This game is so good I'm sorry it just is.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="section" id="music">
+        <h2 class="section-title">Music 🎵</h2>
+        <div class="cherries-grid">
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎵</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Album Title Here</h3>
+                    <p class="cherry-blurb">Your 2-3 sentence blurb about this album or song. What drew you to it? How
+                        did it make you feel?</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="section" id="movies">
+        <h2 class="section-title">Movies 🎬</h2>
+        <div class="cherries-grid">
+            <article class="cherry-item" data-observed>
+                <div class="cherry-image-wrapper">
+                    <div class="cherry-image">🎬</div>
+                </div>
+                <div class="cherry-content">
+                    <h3 class="cherry-title">Movie Title Here</h3>
+                    <p class="cherry-blurb">Your 2-3 sentence blurb about this film. What scenes linger? What made it
+                        unforgettable?</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+
+    <script>
+        // Cherry emoji eruption effect
+        function eruptCherries(x, y) {
+            const container = document.getElementById('cherryContainer');
+            const cherryCount = 15 + Math.floor(Math.random() * 10);
+
+            for (let i = 0; i < cherryCount; i++) {
+                const cherry = document.createElement('span');
+                cherry.className = 'cherry-emoji';
+                cherry.textContent = '🍒';
+
+                const offsetX = (Math.random() - 0.5) * 300;
+                const delay = Math.random() * 0.3;
+
+                cherry.style.left = (x + offsetX) + 'px';
+                cherry.style.top = y + 'px';
+                cherry.style.animationDelay = delay + 's';
+
+                container.appendChild(cherry);
+
+                setTimeout(() => cherry.remove(), 2500);
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                    entry.target.classList.add('visible');
+
+                    // Trigger cherry eruption
+                    const image = entry.target.querySelector('.cherry-image');
+                    if (image) {
+                        const rect = image.getBoundingClientRect();
+                        const centerX = rect.left + rect.width / 2;
+                        const centerY = rect.top + rect.height / 2;
+
+                        setTimeout(() => eruptCherries(centerX, centerY), 600);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cherry items
+        document.querySelectorAll('.cherry-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+
+</html>
